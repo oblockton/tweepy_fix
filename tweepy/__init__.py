@@ -22,6 +22,5 @@ api = API()
 
 def debug(enable=True, level=1):
 
-    import httplib
-    httplib.HTTPConnection.debuglevel = level
-
+    import http.client
+    http.client.HTTPConnection.debuglevel = level
