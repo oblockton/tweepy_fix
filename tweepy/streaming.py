@@ -2,7 +2,7 @@
 # Copyright 2009-2010 Joshua Roesslein
 # See LICENSE for details.
 
-import httplib
+import http.client
 from socket import timeout
 from threading import Thread
 from time import sleep
@@ -99,9 +99,9 @@ class Stream(object):
                 break
             try:
                 if self.scheme == "http":
-                    conn = httplib.HTTPConnection(self.host)
+                    conn = http.client.HTTPConnection(self.host)
                 else:
-                    conn = httplib.HTTPSConnection(self.host)
+                    conn = http.client.HTTPSConnection(self.host)
                 self.auth.apply_auth(url, 'POST', self.headers, self.parameters)
                 conn.connect()
                 conn.sock.settimeout(self.timeout)

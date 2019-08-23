@@ -3,7 +3,7 @@
 # See LICENSE for details.
 
 import http.client
-import urllib
+from urllib.parse import urlencode, quote
 import time
 import re
 import sys
@@ -114,7 +114,7 @@ def bind_api(**config):
                     value = self.api.auth.get_username()
                 else:
                     try:
-                        value = urllib.quote(self.parameters[name])
+                        value = quote(self.parameters[name])
                     except KeyError:
                         raise TweepError('No parameter value found for path variable: %s' % name)
                     del self.parameters[name]
@@ -149,7 +149,7 @@ def bind_api(**config):
             # Build the request URL
             url = self.api_root + self.path
             if len(self.parameters):
-                url = '%s?%s' % (url, urllib.urlencode(self.parameters))
+                url = '%s?%s' % (url, urlencode(self.parameters))
 
             # Query the cache if one is available
             # and this request uses a GET method.

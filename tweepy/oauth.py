@@ -23,10 +23,10 @@ THE SOFTWARE.
 """
 
 import cgi
-import urllib
+# import urllib
 import time
 import random
-from urllib.parse import urlparse
+from urllib.parse import urlparse, quote, unquote
 import hmac
 import binascii
 
@@ -47,7 +47,7 @@ def build_authenticate_header(realm=''):
 
 def escape(s):
     """Escape a URL including any /."""
-    return urllib.quote(s, safe='~')
+    return quote(s, safe='~')
 
 def _utf8_str(s):
     """Convert unicode to utf-8."""
@@ -354,7 +354,7 @@ class OAuthRequest(object):
             # Split key-value.
             param_parts = param.split('=', 1)
             # Remove quotes and unescape the value.
-            params[param_parts[0]] = urllib.unquote(param_parts[1].strip('\"'))
+            params[param_parts[0]] = unquote(param_parts[1].strip('\"'))
         return params
     _split_header = staticmethod(_split_header)
 
@@ -362,7 +362,7 @@ class OAuthRequest(object):
         """Turn URL string into parameters."""
         parameters = cgi.parse_qs(param_str, keep_blank_values=False)
         for k, v in parameters.iteritems():
-            parameters[k] = urllib.unquote(v[0])
+            parameters[k] = unquote(v[0])
         return parameters
     _split_url_string = staticmethod(_split_url_string)
 
