@@ -2,7 +2,7 @@
 # Copyright 2009-2010 Joshua Roesslein
 # See LICENSE for details.
 
-import httplib
+import http.client
 import urllib
 import time
 import re
