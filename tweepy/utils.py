@@ -102,7 +102,7 @@ def import_simplejson():
             try:
                 from django.utils import simplejson as json  # Google App Engine
             except ImportError:
-                raise ImportError, "Can't load a json library"
+                raise ImportError("Can't load a json library")
 
     return json
 
@@ -113,4 +113,3 @@ def list_to_csv(item_list):
 def urlencode_noplus(query):
     return '&'.join(['%s=%s' % (quote(str(k)), quote(str(v))) \
         for k, v in query.iteritems()])
-
