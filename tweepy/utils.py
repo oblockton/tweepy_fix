@@ -21,9 +21,9 @@ def parse_datetime(string):
     locale.setlocale(locale.LC_TIME, '')
     return date
 
-from HTMLParser import HTMLParser
+import HTMLParser
 
-class MLStripper(HTMLParser):
+class MLStripper(HTMLParser.HTMLParser()):
     def __init__(self):
         self.reset()
         self.fed = []
