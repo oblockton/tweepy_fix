@@ -122,7 +122,7 @@ class Stream(object):
                     break
                 conn.close()
                 sleep(self.snooze_time)
-            except Exception, exception:
+            except Exception as exception:
                 # any other exception is fatal, so kill loop
                 break
 
@@ -207,7 +207,7 @@ class Stream(object):
             self.url += '&count=%s' % count
         self._start(async)
 
-    def filter(self, follow=None, track=None, async=False, locations=None, 
+    def filter(self, follow=None, track=None, async=False, locations=None,
         count = None, stall_warnings=False, languages=None):
         self.parameters = {}
         self.headers['Content-type'] = "application/x-www-form-urlencoded"
@@ -235,4 +235,3 @@ class Stream(object):
         if self.running is False:
             return
         self.running = False
-

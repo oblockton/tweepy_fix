@@ -189,16 +189,16 @@ def bind_api(**config):
                 try:
                     conn.request(self.method, url, headers=self.headers, body=self.post_data)
                     resp = conn.getresponse()
-                except Exception, e:
+                except Exception as e:
                     raise TweepError('Failed to send request: %s' % e)
 
                 if self.monitor_rate_limit:
                     rem_calls = resp.getheader('x-rate-limit-remaining')
-                    rem_calls = int(rem_calls) if rem_calls is not None else self._remaining_calls[self.api.auth_idx]-1 
+                    rem_calls = int(rem_calls) if rem_calls is not None else self._remaining_calls[self.api.auth_idx]-1
                     self._remaining_calls[self.api.auth_idx] = rem_calls
                     reset_time = resp.getheader('x-rate-limit-reset')
                     if reset_time is not None:
-                        self._reset_times[self.api.auth_idx] = int(reset_time) 
+                        self._reset_times[self.api.auth_idx] = int(reset_time)
                     if rem_calls == 0:
                         self.switch_auth()
                         if resp.status == 429: # if ran out of calls before switching retry last call
@@ -254,4 +254,3 @@ def bind_api(**config):
         _call.pagination_mode = 'page'
 
     return _call
-
