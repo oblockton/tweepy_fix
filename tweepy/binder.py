@@ -54,7 +54,7 @@ def bind_api(**config):
                                           api.retry_delay)
             self.retry_errors = kwargs.pop('retry_errors',
                                            api.retry_errors)
-            self.monitor_rate_limit = kargs.pop('monitor_rate_limit', #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Addition
+            self.monitor_rate_limit = kwargs.pop('monitor_rate_limit', #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Addition
                                                 api.monitor_rate_limit)
             self.wait_on_rate_limit = kwargs.pop('wait_on_rate_limit',
                                                  api.wait_on_rate_limit)
