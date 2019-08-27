@@ -193,7 +193,7 @@ def bind_api(**config):
                 if self.wait_on_rate_limit:
                     if self._reset_times is not None:
                         if self._remaining_calls is not None:
-                            if self._remaining_calls < 1:
+                            if len(self._remaining_calls) < 1:
                                 sleep_time = self._reset_times[next_idx] - int(time.time())
                                 if sleep_time > 0:
                                     if self.wait_on_rate_limit_notify:
