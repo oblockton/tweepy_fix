@@ -65,8 +65,8 @@ def bind_api(**config):
                 if self._path_category == 'application':
                     self.monitor_rate_limit = False
                 self._path_without_ext = path_without_ext_pattern.findall(self.path)[0]
-                self._remaining_calls = [sys.maxint]*len(self.api.auths)
-                self._reset_times = [sys.maxint]*len(self.api.auths)
+                self._remaining_calls = [sys.maxsize]*len(self.api.auths)
+                self._reset_times = [sys.maxsize]*len(self.api.auths)
             self.parser = kwargs.pop('parser', api.parser)
             self.session.headers = kwargs.pop('headers', {})
             self.build_parameters(args, kwargs)
