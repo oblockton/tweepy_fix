@@ -60,6 +60,7 @@ def bind_api(**config):
                                                  api.wait_on_rate_limit)
             self.wait_on_rate_limit_notify = kwargs.pop('wait_on_rate_limit_notify',
                                                         api.wait_on_rate_limit_notify)
+            ######################################################################################################3
             if self.monitor_rate_limit:
                 self._path_category = path_category_pattern.findall(self.path)[0]
                 if self._path_category == 'application':
@@ -67,6 +68,7 @@ def bind_api(**config):
                 self._path_without_ext = path_without_ext_pattern.findall(self.path)[0]
                 self._remaining_calls = [sys.maxsize]*len(self.api.auths)
                 self._reset_times = [sys.maxsize]*len(self.api.auths)
+            #########################################################################################################
             self.parser = kwargs.pop('parser', api.parser)
             self.session.headers = kwargs.pop('headers', {})
             self.build_parameters(args, kwargs)
@@ -193,9 +195,8 @@ def bind_api(**config):
                 if self.wait_on_rate_limit:
                     if self._reset_times is not None:
                         if self._remaining_calls is not None:
-                            if len(self._remaining_calls) < 1:
-                                sleep_time = self._reset_times[next_idx] - int(time.time())
-                                if sleep_time > 0:
+                            if len(self._remaining_calls) < 1: #<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Addition
+                                sleep_time = self._reset_times[next_idx] - int(time.time()) #<<<<<<<<<<<<<<<<<<<<<<< [next_id] addition                                if sleep_time > 0:
                                     if self.wait_on_rate_limit_notify:
                                         log.warning("Rate limit reached. Sleeping for: %d" % sleep_time)
                                     time.sleep(sleep_time + 5)  # sleep for few extra sec
@@ -235,8 +236,9 @@ def bind_api(**config):
                 #     self._remaining_calls = int(rem_calls)
                 # elif isinstance(self._remaining_calls, int):
                 #     self._remaining_calls -= 1
+                ############################################################################
                 if self.monitor_rate_limit:
-                    rem_calls = resp.getheader('x-rate-limit-remaining')
+                    rem_calls = resp.headers.get('x-rate-limit-remaining')
                     rem_calls = int(rem_calls) if rem_calls is not None else self._remaining_calls[self.api.auth_idx]-1
                     self._remaining_calls[self.api.auth_idx] = rem_calls
                     reset_time = resp.headers.get('x-rate-limit-reset')
@@ -248,6 +250,7 @@ def bind_api(**config):
                                 # if ran out of calls before waiting switching retry last call
                                 resp.status_code == 429 or resp.status_code == 420):
                             continue
+                ####################################################################################################
                 retry_delay = self.retry_delay
                 # Exit request loop if non-retry error code
                 if resp.status_code in (200, 204):
