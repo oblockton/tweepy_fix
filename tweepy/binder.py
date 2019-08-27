@@ -16,6 +16,9 @@ from tweepy.models import Model
 from tweepy.utils import convert_to_utf8_str
 
 re_path_template = re.compile(r'{\w+}')
+path_category_pattern = re.compile('/([^/]+)/')
+path_without_ext_pattern = re.compile('(.*)\.\w{1,4}')
+
 
 log = logging.getLogger(__name__)
 
