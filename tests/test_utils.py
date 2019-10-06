@@ -2,7 +2,7 @@ import random
 import string
 import unittest
 
-from tweepy.utils import *
+from tweepymashup.utils import *
 
 
 def mock_tweet():
@@ -21,4 +21,3 @@ class TweepyUtilsTests(unittest.TestCase):
         self.assertEqual("1,2,3", list_to_csv([1,2,3]))
         self.assertEqual("bird,tweet,nest,egg",
                          list_to_csv(["bird", "tweet", "nest", "egg"]))
-

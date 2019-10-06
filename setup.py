@@ -4,7 +4,10 @@
 import re
 from setuptools import find_packages, setup
 
-VERSIONFILE = "tweepy/__init__.py"
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+VERSIONFILE = "tweepymashup/__init__.py"
 ver_file = open(VERSIONFILE, "rt").read()
 VSRE = r"^__version__ = ['\"]([^'\"]*)['\"]"
 mo = re.search(VSRE, ver_file, re.M)
@@ -14,13 +17,14 @@ if mo:
 else:
     raise RuntimeError("Unable to find version string in %s." % (VERSIONFILE,))
 
-setup(name="tweepy",
+setup(name="tweepymashup",
       version=version,
-      description="Twitter library for python",
+      description="Multi-Auth handling,Twitter library for python",
+      long_description=long_description,
       license="MIT",
-      author="Joshua Roesslein",
+      author="O.G-Joshua Roesslein Remix-Nirg Mashup-oblockton",
       author_email="tweepy@googlegroups.com",
-      url="http://github.com/tweepy/tweepy",
+      url="https://github.com/oblockton/tweepy_fix",
       packages=find_packages(exclude=['tests', 'examples']),
       install_requires=[
           "PySocks>=1.5.7",
@@ -36,8 +40,6 @@ setup(name="tweepy",
           'License :: OSI Approved :: MIT License',
           'Operating System :: OS Independent',
           'Programming Language :: Python',
-          'Programming Language :: Python :: 2',
-          'Programming Language :: Python :: 2.7',
           'Programming Language :: Python :: 3',
           'Programming Language :: Python :: 3.5',
           'Programming Language :: Python :: 3.6',

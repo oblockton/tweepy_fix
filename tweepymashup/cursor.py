@@ -2,8 +2,8 @@
 # Copyright 2009-2019 Joshua Roesslein
 # See LICENSE for details.
 
-from tweepy.error import TweepError
-from tweepy.parsers import ModelParser, RawParser
+from tweepymashup.parsers import ModelParser, RawParser
+from tweepymashup.error import TweepError
 
 
 class Cursor(object):

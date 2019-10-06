@@ -1,6 +1,6 @@
 from .config import TweepyTestCase
 
-from tweepy.models import ResultSet
+from tweepymashup.models import ResultSet
 
 class NoIdItem(object): pass
 
@@ -26,4 +26,3 @@ class TweepyResultSetTests(TweepyTestCase):
 
     def testsinceid(self):
         self.assertEqual(self.results.since_id, 100)
-

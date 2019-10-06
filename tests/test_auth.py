@@ -6,7 +6,7 @@ import unittest
 from six.moves import input
 
 from .config import *
-from tweepy import API, OAuthHandler
+from tweepymashup import API, OAuthHandler
 
 
 class TweepyAuthTests(unittest.TestCase):

@@ -10,8 +10,8 @@ from requests.auth import AuthBase
 from requests_oauthlib import OAuth1, OAuth1Session
 from six.moves.urllib.parse import parse_qs
 
-from tweepy.api import API
-from tweepy.error import TweepError
+from tweepymashup.api import API
+from tweepymashup.error import TweepError
 
 WARNING_MESSAGE = """Warning! Due to a Twitter API bug, signin_with_twitter
 and access_type don't always play nice together. Details

@@ -3,11 +3,10 @@ Installation
 
 Install from PyPI::
 
-    easy_install tweepy
+    easy_install tweepymashup
 
 Install from source::
 
-    git clone git://github.com/tweepy/tweepy.git
+    git clone git://github.com/oblockton/tweepy_fix
     cd tweepy
     python setup.py install
-

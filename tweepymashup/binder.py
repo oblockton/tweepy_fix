@@ -11,9 +11,9 @@ import requests
 import six
 from six.moves.urllib.parse import quote, urlencode
 
-from tweepy.error import is_rate_limit_error_message, RateLimitError, TweepError
-from tweepy.models import Model
-from tweepy.utils import convert_to_utf8_str
+from tweepymashup.error import is_rate_limit_error_message, RateLimitError, TweepError
+from tweepymashup.models import Model
+from tweepymashup.utils import convert_to_utf8_str
 
 re_path_template = re.compile(r'{\w+}')
 path_category_pattern = re.compile('/([^/]+)/')

@@ -1,4 +1,11 @@
 Tweepy: Twitter for Python!
+
+
+Tweepy Mashup: Mutli-Auth Handling Tweepy for Python 3+
+
+This is a mashup of Tweepy 3.8.0 and NIRG's fork of a python 2 Tweepy version. Nirg's forked allowed for
+automatic switching of Auth handlers as Ratelimit approached. That functionality has been mashed with the updated features
+included with Tweepy's latest version(3.8.0).
 ======
 
 [![Build Status](http://img.shields.io/travis/tweepy/tweepy/master.svg?style=flat)](https://travis-ci.org/tweepy/tweepy)
@@ -12,18 +19,17 @@ Installation
 The easiest way to install the latest version
 is by using pip/easy_install to pull it from PyPI:
 
-    pip install tweepy
+    pip install tweepymashup
 
 You may also use Git to clone the repository from
 GitHub and install it manually:
 
-    git clone https://github.com/tweepy/tweepy.git
+    git clone https://github.com/oblockton/tweepy_fix
     cd tweepy
     python setup.py install
 
-Python 2.7, 3.5, 3.6, & 3.7 are supported.
+Python 3.5, 3.6, & 3.7 are supported.
 
 Community
 ---------
 - [Discord Chat](https://discord.gg/bJvqnhg)
-

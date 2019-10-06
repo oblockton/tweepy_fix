@@ -3,8 +3,8 @@ import unittest
 
 import vcr
 
-from tweepy.api import API
-from tweepy.auth import OAuthHandler
+from tweepymashup.api import API
+from tweepymashup.auth import OAuthHandler
 
 
 username = os.environ.get('TWITTER_USERNAME', 'TweepyDev')

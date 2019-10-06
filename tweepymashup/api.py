@@ -7,10 +7,10 @@ import os
 
 import six
 
-from tweepy.binder import bind_api
-from tweepy.error import TweepError
-from tweepy.parsers import ModelParser, Parser
-from tweepy.utils import list_to_csv
+from tweepymashup.binder import bind_api
+from tweepymashup.error import TweepError
+from tweepymashup.parsers import ModelParser, Parser
+from tweepymashup.utils import list_to_csv
 
 
 class API(object):

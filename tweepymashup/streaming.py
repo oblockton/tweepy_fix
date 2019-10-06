@@ -18,9 +18,9 @@ from time import sleep
 import six
 from requests.exceptions import Timeout
 
-from tweepy.api import API
-from tweepy.error import TweepError
-from tweepy.models import Status
+from tweepymashup.api import API
+from tweepymashup.error import TweepError
+from tweepymashup.models import Status
 
 STREAM_VERSION = '1.1'
 
@@ -238,7 +238,7 @@ class Stream(object):
         self.body = None
         self.retry_time = self.retry_time_start
         self.snooze_time = self.snooze_time_step
-        
+
         # Example: proxies = {'http': 'http://localhost:1080', 'https': 'http://localhost:1080'}
         self.proxies = options.get("proxies")
         self.host = options.get('host', 'stream.twitter.com')

@@ -8,10 +8,10 @@ import six
 
 from .config import create_auth
 from .test_utils import mock_tweet
-from tweepy.api import API
-from tweepy.auth import OAuthHandler
-from tweepy.models import Status
-from tweepy.streaming import ReadBuffer, Stream, StreamListener
+from tweepymashup.api import API
+from tweepymashup.auth import OAuthHandler
+from tweepymashup.models import Status
+from tweepymashup.streaming import ReadBuffer, Stream, StreamListener
 
 
 if six.PY3:

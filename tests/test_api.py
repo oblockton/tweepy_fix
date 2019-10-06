@@ -8,8 +8,8 @@ from ast import literal_eval
 from nose import SkipTest
 
 from .config import tape, TweepyTestCase, use_replay, username
-from tweepy import API, FileCache, Friendship, MemoryCache
-from tweepy.parsers import Parser
+from tweepymashup import API, FileCache, Friendship, MemoryCache
+from tweepymashup.parsers import Parser
 
 test_tweet_id = '266367358078169089'
 tweet_text = 'testing 1000'
