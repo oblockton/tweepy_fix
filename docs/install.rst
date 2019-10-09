@@ -8,5 +8,5 @@ Install from PyPI::
 Install from source::
 
     git clone git://github.com/oblockton/tweepy_fix
-    cd tweepy
+    cd tweepymashup
     python setup.py install

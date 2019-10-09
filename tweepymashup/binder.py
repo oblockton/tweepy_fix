@@ -60,7 +60,9 @@ def bind_api(**config):
                                                  api.wait_on_rate_limit)
             self.wait_on_rate_limit_notify = kwargs.pop('wait_on_rate_limit_notify',
                                                         api.wait_on_rate_limit_notify)
-            ######################################################################################################3
+            ######################################################################################################
+            self._remaining_calls = None
+            self._reset_times = None
             if self.monitor_rate_limit:
                 self._path_category = path_category_pattern.findall(self.path)[0]
                 if self._path_category == 'application':
@@ -68,6 +70,9 @@ def bind_api(**config):
                 self._path_without_ext = path_without_ext_pattern.findall(self.path)[0]
                 self._remaining_calls = [sys.maxsize]*len(self.api.auths)
                 self._reset_times = [sys.maxsize]*len(self.api.auths)
+
+                # Monitoring rate limits when not using multi-auths & monitor_rate_limit param.
+
             #########################################################################################################
             self.parser = kwargs.pop('parser', api.parser)
             self.session.headers = kwargs.pop('headers', {})
@@ -97,9 +102,8 @@ def bind_api(**config):
             # See Issue https://github.com/tweepy/tweepy/issues/12
             self.session.headers['Host'] = self.host
             #??????????????????????????????????????????????????????????????????????????????????????????
-            # Monitoring rate limits
-            # self._remaining_calls = None
-            # self._reset_time = None
+
+
             #?????????????????????????????????????????????????????????????????????????????????????????????
 
         def build_parameters(self, args, kwargs):

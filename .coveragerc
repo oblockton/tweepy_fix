@@ -1,5 +1,5 @@
 [run]
-source = tweepy
+source = tweepymashup
 
 [report]
 omit =
